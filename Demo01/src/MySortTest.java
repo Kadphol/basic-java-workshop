@@ -72,4 +72,12 @@ class MySortTest {
         List<Integer> result = mysort.sort();
         assertEquals(Arrays.asList(1,2,3),result);
     }
+
+    @Test
+    @DisplayName("TC09: Test Sort with Five items in List => [5,4,3,2,1]" + "expected result [1,2,3,4,5]")
+    public void FiveElementList() {
+        MySort mysort = new MySort(Arrays.asList(5,4,3,2,1));
+        List<Integer> result = mysort.sort();
+        assertEquals(Arrays.asList(1,2,3,4,5),result);
+    }
 }
