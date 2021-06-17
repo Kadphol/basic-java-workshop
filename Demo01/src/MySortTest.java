@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MySortTest {
     @Test
-    @DisplayName("Test Sort with Empty List")
+    @DisplayName("TC01: Test Sort with Empty List")
     public void EmptySort() {
         MySort mysort = new MySort(new ArrayList<>());
         List<Integer> result = mysort.sort();
@@ -18,7 +18,7 @@ class MySortTest {
     }
 
     @Test
-    @DisplayName("Test Sort with Single items in List")
+    @DisplayName("TC02: Test Sort with Single items in List")
     public void OneElementList() {
         MySort mysort = new MySort(Collections.singletonList(1));
         List<Integer> result = mysort.sort();
@@ -26,7 +26,7 @@ class MySortTest {
     }
 
     @Test
-    @DisplayName("Test Sort with Two items in List => [1,2]" + "expected result [1,2]")
+    @DisplayName("TC03: Test Sort with Two items in List => [1,2]" + "expected result [1,2]")
     public void TwoElementListCase01() {
         MySort mysort = new MySort(Arrays.asList(1,2));
         List<Integer> result = mysort.sort();
@@ -34,7 +34,7 @@ class MySortTest {
     }
 
     @Test
-    @DisplayName("Test Sort with Two items in List => [2,1]" + "expected result [1,2]")
+    @DisplayName("TC04: Test Sort with Two items in List => [2,1]" + "expected result [1,2]")
     public void TwoElementListCase02() {
         MySort mysort = new MySort(Arrays.asList(2,1));
         List<Integer> result = mysort.sort();
@@ -42,9 +42,17 @@ class MySortTest {
     }
 
     @Test
-    @DisplayName("Test Sort with Three items in List => [1,2,3]" + "expected result [1,2,3]")
+    @DisplayName("TC05: Test Sort with Three items in List => [1,2,3]" + "expected result [1,2,3]")
     public void ThreeElementListCase01() {
         MySort mysort = new MySort(Arrays.asList(1,2,3));
+        List<Integer> result = mysort.sort();
+        assertEquals(Arrays.asList(1,2,3),result);
+    }
+
+    @Test
+    @DisplayName("TC06: Test Sort with Three items in List => [2,1,3]" + "expected result [1,2,3]")
+    public void ThreeElementListCase02() {
+        MySort mysort = new MySort(Arrays.asList(2,1,3));
         List<Integer> result = mysort.sort();
         assertEquals(Arrays.asList(1,2,3),result);
     }
