@@ -15,6 +15,28 @@ public class MyRange {
         return input.endsWith("]");
     }
 
+    public boolean checkStart() {
+        return input.startsWith("[") || input.startsWith("(");
+    }
+
+    public boolean checkEnd() {
+        return input.endsWith("]") || input.startsWith(")");
+    }
+
+    public boolean checkNumber() {
+        int firstNum = getFirstNumber();
+        int secondNum = getSecondNumber();
+        return secondNum >= firstNum;
+    }
+
+    public boolean checkFormat() {
+        return input.charAt(2) == ',';
+    }
+
+    public boolean checkAll() {
+        return checkStart() && checkEnd() && checkNumber() && checkFormat();
+    }
+
     public int getFirstNumber() {
         final int firstNum = Character.getNumericValue(input.charAt(1));
         if(checkStartWithInclude()) return firstNum;
@@ -40,6 +62,9 @@ public class MyRange {
     public static void main(String[] args) {
         String input = args[0];
         MyRange myRange = new MyRange(input);
+        if(myRange.checkAll()) {
+            System.out.println(myRange.getResult());
+        }
 
     }
 }

@@ -55,7 +55,7 @@ class MyRangeTest {
     @Test
     public void getSecondNumberEndWithExclude() {
         MyRange range = new MyRange("[1,5)");
-        int secondNumber = range.getSecondNumber()
+        int secondNumber = range.getSecondNumber();
         assertEquals(4,secondNumber);
     }
 
@@ -71,5 +71,19 @@ class MyRangeTest {
         MyRange range = new MyRange("(1,5]");
         String result = range.getResult();
         assertEquals("2,3,4,5", result);
+    }
+
+    @Test
+    public void result03() {
+        MyRange range = new MyRange("[1,5)");
+        String result = range.getResult();
+        assertEquals("1,2,3,4", result);
+    }
+
+    @Test
+    public void result04() {
+        MyRange range = new MyRange("(1,5)");
+        String result = range.getResult();
+        assertEquals("2,3,4", result);
     }
 }
