@@ -12,4 +12,13 @@ class MySortTest {
         List<Integer> result = mysort.sort();
         assertEquals(new ArrayList<>(), result);
     }
+
+    @Test
+    public void OneElementList() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        MySort mysort = new MySort(list);
+        List<Integer> result = mysort.sort();
+        assertEquals(list, result);
+    }
 }
