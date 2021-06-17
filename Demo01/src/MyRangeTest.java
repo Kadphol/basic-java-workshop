@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import org.w3c.dom.ranges.Range;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -57,6 +58,34 @@ class MyRangeTest {
         MyRange range = new MyRange("[1,5)");
         int secondNumber = range.getSecondNumber();
         assertEquals(4,secondNumber);
+    }
+
+    @Test
+    public void StartWithWrongParenthesis() {
+        MyRange range = new MyRange("{3,5]");
+        boolean isCorrect = range.checkStart();
+        assertFalse(isCorrect);
+    }
+
+    @Test
+    public void EndWithWrongParenthesis() {
+        MyRange range = new MyRange("[3,5}");
+        boolean isCorrect = range.checkEnd();
+        assertFalse(isCorrect);
+    }
+
+    @Test
+    public void FirstNumberIsGreater() {
+        MyRange range = new MyRange("[5,4]");
+        boolean isCorrect = range.checkNumber();
+        assertFalse(isCorrect);
+    }
+
+    @Test
+    public void WrongFormat() {
+        MyRange range = new MyRange("[35}");
+        boolean isCorrect = range.checkFormat();
+        assertFalse(isCorrect);
     }
 
     @Test
