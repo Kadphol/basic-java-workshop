@@ -26,7 +26,7 @@ class MySortTest {
     }
 
     @Test
-    @DisplayName("Test Sort with [1,2]" + "expected result [1,2]")
+    @DisplayName("Test Sort with Two items in List => [1,2]" + "expected result [1,2]")
     public void TwoElementListCase01() {
         MySort mysort = new MySort(Arrays.asList(1,2));
         List<Integer> result = mysort.sort();
@@ -34,11 +34,18 @@ class MySortTest {
     }
 
     @Test
-    @DisplayName("Test Sort with [2,1]" + "expected result [1,2]")
+    @DisplayName("Test Sort with Two items in List => [2,1]" + "expected result [1,2]")
     public void TwoElementListCase02() {
         MySort mysort = new MySort(Arrays.asList(2,1));
         List<Integer> result = mysort.sort();
         assertEquals(Arrays.asList(1,2),result);
     }
 
+    @Test
+    @DisplayName("Test Sort with Three items in List => [1,2,3]" + "expected result [1,2,3]")
+    public void ThreeElementListCase01() {
+        MySort mysort = new MySort(Arrays.asList(1,2,3));
+        List<Integer> result = mysort.sort();
+        assertEquals(Arrays.asList(1,2,3),result);
+    }
 }
