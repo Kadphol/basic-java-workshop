@@ -32,6 +32,20 @@ class MyRangeTest {
     }
 
     @Test
+    public void EndWithInclude() {
+        MyRange range = new MyRange("[1,5]");
+        boolean isInclude = range.checkEndWithInclude();
+        assertTrue(isInclude);
+    }
+
+    @Test
+    public void EndWithExclude() {
+        MyRange range = new MyRange("[1,5)");
+        boolean isInclude = range.checkEndWithInclude();
+        assertFalse(isInclude);
+    }
+
+    @Test
     public void result01() {
         MyRange range = new MyRange("[1,5]");
         String result = range.getResult();
