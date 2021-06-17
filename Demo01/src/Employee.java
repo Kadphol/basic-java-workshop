@@ -1,4 +1,4 @@
-public class Employee {
+public class Employee{
     private int id;
     private String firstName;
     private String lastName;
@@ -6,7 +6,7 @@ public class Employee {
     private Department dep;
 
     public Employee() {
-        this("?", "?");
+        this("", "");
     }
 
     public Employee(String firstName, String lastName) {
