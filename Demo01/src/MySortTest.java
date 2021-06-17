@@ -56,4 +56,12 @@ class MySortTest {
         List<Integer> result = mysort.sort();
         assertEquals(Arrays.asList(1,2,3),result);
     }
+
+    @Test
+    @DisplayName("TC07: Test Sort with Three items in List => [1,3,2]" + "expected result [1,2,3]")
+    public void ThreeElementListCase03() {
+        MySort mysort = new MySort(Arrays.asList(1,3,2));
+        List<Integer> result = mysort.sort();
+        assertEquals(Arrays.asList(1,2,3),result);
+    }
 }
