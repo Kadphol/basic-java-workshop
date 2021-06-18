@@ -7,6 +7,30 @@ public class DemoExtend {
     }
 }
 
+interface Process {
+    void generateHeader();
+    void generateBody();
+    void generateFooter();
+}
+
+class Report2 implements Process {
+
+    @Override
+    public void generateHeader() {
+
+    }
+
+    @Override
+    public void generateBody() {
+
+    }
+
+    @Override
+    public void generateFooter() {
+
+    }
+}
+
 abstract class Report {
     abstract void generateHeader();
     abstract void generateBody();
@@ -34,8 +58,4 @@ class Report1 extends Report {
     void generateFooter() {
         System.out.println("Generate Footer");
     }
-}
-
-interface Lego {
-
 }
