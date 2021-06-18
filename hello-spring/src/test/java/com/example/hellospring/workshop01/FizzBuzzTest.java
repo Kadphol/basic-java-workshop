@@ -45,4 +45,12 @@ class FizzBuzzTest {
         String result = fizzBuzz.getFizzBuzz(5);
         assertEquals("Buzz",result);
     }
+
+    @Test
+    @DisplayName("6 => Buzz")
+    public void case06() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getFizzBuzz(6);
+        assertEquals("Fizz",result);
+    }
 }
