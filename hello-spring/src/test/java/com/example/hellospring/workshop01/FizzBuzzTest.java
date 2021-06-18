@@ -47,10 +47,42 @@ class FizzBuzzTest {
     }
 
     @Test
-    @DisplayName("6 => Buzz")
+    @DisplayName("6 => Fizz")
     public void case06() {
         FizzBuzz fizzBuzz = new FizzBuzz();
         String result = fizzBuzz.getFizzBuzz(6);
         assertEquals("Fizz",result);
+    }
+
+    @Test
+    @DisplayName("7 => 7")
+    public void case07() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getFizzBuzz(7);
+        assertEquals("7",result);
+    }
+
+    @Test
+    @DisplayName("8 => 8")
+    public void case08() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getFizzBuzz(8);
+        assertEquals("8",result);
+    }
+
+    @Test
+    @DisplayName("9 => Fizz")
+    public void case09() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getFizzBuzz(9);
+        assertEquals("Fizz",result);
+    }
+
+    @Test
+    @DisplayName("10 => Buzz")
+    public void case10() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getFizzBuzz(10);
+        assertEquals("Buzz",result);
     }
 }
