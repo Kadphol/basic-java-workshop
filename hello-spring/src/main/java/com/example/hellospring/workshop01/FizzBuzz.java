@@ -8,6 +8,7 @@ public class FizzBuzz {
                 new FizzBuzzRule(),
                 new FizzRule(),
                 new BuzzRule(),
+                new KBTGRule()
         };
     }
 

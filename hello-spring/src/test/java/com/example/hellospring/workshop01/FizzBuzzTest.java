@@ -55,11 +55,11 @@ class FizzBuzzTest {
     }
 
     @Test
-    @DisplayName("7 => 7")
+    @DisplayName("7 => KBTG BASIC JAVA")
     public void case07() {
         FizzBuzz fizzBuzz = new FizzBuzz();
         String result = fizzBuzz.getFizzBuzz(7);
-        assertEquals("7",result);
+        assertEquals("KBTG BASIC JAVA",result);
     }
 
     @Test
