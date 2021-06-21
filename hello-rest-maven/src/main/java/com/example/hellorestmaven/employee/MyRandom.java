@@ -6,5 +6,8 @@ import java.util.Random;
 
 @Component
 public class MyRandom extends Random {
-
+    @Override
+    public int nextInt(int bound) {
+        return 5;
+    }
 }

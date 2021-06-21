@@ -23,7 +23,7 @@ public class EmployeeController {
             return new EmployeeResponse(_id, "Can't", "Convert");
         }
 
-        int number = random.nextInt(10);
+        int number = (new MyRandom()).nextInt(10);
         return new EmployeeResponse(_id, "Someone"+number, "Something");
     }
 
