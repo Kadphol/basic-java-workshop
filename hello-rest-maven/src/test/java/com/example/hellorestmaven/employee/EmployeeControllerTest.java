@@ -21,7 +21,10 @@ class EmployeeControllerTest {
 
     @Test
     public void callApiWithPathVariable() {
+        //Mock
         when(random.nextInt(10)).thenReturn(5);
+        
+        //Test
         EmployeeResponse expected = new EmployeeResponse(123, "Someone5", "Something");
         EmployeeResponse response =
                 restTemplate.getForObject("/employee/123", EmployeeResponse.class);
