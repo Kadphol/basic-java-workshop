@@ -22,7 +22,7 @@ class EmployeeControllerTest {
         assertEquals(123, response.getId());
         assertEquals("Someone", response.getFname());
         assertEquals("Something", response.getLname());
-        assertEquals(expected.toString(),response.toString());
+        assertEquals(expected,response);
     }
 
     @Test
@@ -33,6 +33,6 @@ class EmployeeControllerTest {
         assertEquals(999, response.getId());
         assertEquals("Someone", response.getFname());
         assertEquals("Something", response.getLname());
-        assertEquals(expected.toString(), response.toString());
+        assertEquals(expected, response);
     }
 }
