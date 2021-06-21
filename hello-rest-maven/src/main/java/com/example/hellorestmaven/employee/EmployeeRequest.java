@@ -1,7 +1,11 @@
 package com.example.hellorestmaven.employee;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EmployeeRequest {
+    @JsonProperty("first_name")
     private String fName;
+
     private String lName;
 
     public EmployeeRequest(String fName, String LName) {
