@@ -6,6 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
+import java.util.Random;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.*;
@@ -17,13 +19,13 @@ class EmployeeControllerTest {
     private TestRestTemplate restTemplate;
 
     @MockBean
-    private MyRandom random;
+    private Random random;
 
     @Test
     public void callApiWithPathVariable() {
         //Mock
         when(random.nextInt(10)).thenReturn(5);
-        
+
         //Test
         EmployeeResponse expected = new EmployeeResponse(123, "Someone5", "Something");
         EmployeeResponse response =
