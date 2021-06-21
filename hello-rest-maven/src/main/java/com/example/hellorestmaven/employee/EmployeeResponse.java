@@ -4,7 +4,7 @@ public class EmployeeResponse{
     private int id;
     private String fname;
     private String lname;
-    
+
     public EmployeeResponse(int id, String fname, String lname) {
         this.id = id;
         this.fname = fname;
