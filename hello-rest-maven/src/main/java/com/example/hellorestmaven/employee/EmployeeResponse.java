@@ -32,4 +32,13 @@ public class EmployeeResponse{
     public int getId(){
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeeResponse{" +
+                "id=" + id +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                '}';
+    }
 }
