@@ -8,7 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmployeeController {
 
     @GetMapping("/employee/{id}")
-    public EmployeeResponse getEmployeeByID(@PathVariable int id) {
-        return new EmployeeResponse(id, "Someone", "Something");
+    public EmployeeResponse getEmployeeByID(@PathVariable String id) {
+        int _id = 0;
+        try {
+            _id = Integer.parseInt(id);
+        } catch (NumberFormatException e) {
+            return new EmployeeResponse(_id, "Can't", "Convert");
+        }
+        return new EmployeeResponse(_id, "Someone", "Something");
     }
 }
