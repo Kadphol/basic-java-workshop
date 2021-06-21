@@ -1,12 +1,13 @@
 package com.example.hellorestmaven;
 
 import com.example.hellorestmaven.employee.Demo;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class HelloRestMavenApplication {
+public class HelloRestMavenApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 
@@ -26,4 +27,9 @@ public class HelloRestMavenApplication {
 		System.out.println("Demo2 => " +demo2.getName());
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Start ...");
+		System.out.println("End ...");
+	}
 }
