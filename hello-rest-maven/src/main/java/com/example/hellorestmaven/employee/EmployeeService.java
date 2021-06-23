@@ -15,6 +15,14 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository repository;
 
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    public void setRepository(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+
     public EmployeeResponse process(int id) {
         Optional<Employee> result = repository.findById(id);
         if(result.isPresent()) {
