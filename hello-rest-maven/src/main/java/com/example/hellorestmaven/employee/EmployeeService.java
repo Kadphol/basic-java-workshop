@@ -33,6 +33,6 @@ public class EmployeeService {
         }
         //not found
         //return new EmployeeResponse();
-        throw new EmployeeNotFoundException();
+        throw new EmployeeNotFoundException("Employee id " + id + " not found");
     }
 }

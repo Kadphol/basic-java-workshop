@@ -36,10 +36,8 @@ public class EmployeeServiceTest {
         EmployeeService service = new EmployeeService();
         service.setRepository(repository);
 
-        EmployeeResponse result = service.process(100);
-        assertEquals(0, result.getId());
-        assertNull(result.getFname());
-        assertNull(result.getLname());
+        Exception exception = assertThrows(EmployeeNotFoundException.class, () -> service.process(100));
+        assertEquals("Employee id 100 not found", exception.getMessage());
     }
 
     @Test
