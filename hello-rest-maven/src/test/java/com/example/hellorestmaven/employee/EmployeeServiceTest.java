@@ -1,6 +1,8 @@
 package com.example.hellorestmaven.employee;
 
 import jdk.management.resource.internal.ResourceNatives;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -21,9 +23,28 @@ public class EmployeeServiceTest {
     @Mock
     private EmployeeRepository repository;
 
+    @BeforeEach
+    public void setupMock() {
+        when(random.nextInt(10)).thenReturn(10);
+    }
+
+    @Test
+    public void EmployeeID100NotFound() {
+        when(repository.findById(100)).thenReturn(
+                Optional.empty()
+        );
+        EmployeeService service = new EmployeeService();
+        service.setRandom(random);
+        service.setRepository(repository);
+
+        EmployeeResponse result = service.process(100);
+        assertEquals(0, result.getId());
+        assertNull(result.getFname());
+        assertNull(result.getLname());
+    }
+
     @Test
     public void foundEmployeeID1() {
-        when(random.nextInt(10)).thenReturn(10);
         Employee mock = new Employee(1,"Service name", "Service lname");
         when(repository.findById(1)).thenReturn(
                 Optional.of(mock)
@@ -37,19 +58,5 @@ public class EmployeeServiceTest {
         assertEquals(1, result.getId());
         assertEquals("Service name10", result.getFname());
         assertEquals("Service lname", result.getLname());
-    }
-
-    @Test
-    public void EmployeeID100NotFound() {
-        when(repository.findById(100)).thenReturn(
-                Optional.empty()
-        );
-        EmployeeService service = new EmployeeService();
-        service.setRepository(repository);
-
-        EmployeeResponse result = service.process(100);
-        assertEquals(0, result.getId());
-        assertNull(result.getFname());
-        assertNull(result.getLname());
     }
 }
