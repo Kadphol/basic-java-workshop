@@ -23,10 +23,10 @@ public class EmployeeServiceTest {
     @Mock
     private EmployeeRepository repository;
 
-    @BeforeEach
-    public void setupMock() {
-        when(random.nextInt(10)).thenReturn(10);
-    }
+//    @BeforeEach
+//    public void setupMock() {
+//        when(random.nextInt(10)).thenReturn(10);
+//    }
 
     @Test
     public void EmployeeID100NotFound() {
@@ -34,7 +34,6 @@ public class EmployeeServiceTest {
                 Optional.empty()
         );
         EmployeeService service = new EmployeeService();
-        service.setRandom(random);
         service.setRepository(repository);
 
         EmployeeResponse result = service.process(100);
@@ -45,6 +44,7 @@ public class EmployeeServiceTest {
 
     @Test
     public void foundEmployeeID1() {
+        when(random.nextInt(10)).thenReturn(10);
         Employee mock = new Employee(1,"Service name", "Service lname");
         when(repository.findById(1)).thenReturn(
                 Optional.of(mock)
