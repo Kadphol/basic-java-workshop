@@ -16,32 +16,20 @@ public class EmployeeController {
         return new Random();
     }
 
-    @Autowired
-    private Random random;
 
     @Autowired
-    private EmployeeRepository repository;
+    private EmployeeService employeeService;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
         int _id;
-        EmployeeResponse response;
-        Employee employee;
         try {
             _id = Integer.parseInt(id);
         } catch (NumberFormatException e) {
             throw new NumberFormatException("Invalid id :" + id);
         }
+        return employeeService.process(_id);
 
-        // Call repository
-        Optional<Employee> result = repository.findById(_id);
-        if(result.isPresent()) {
-            employee = result.get();
-            int number = random.nextInt(10);
-            return new EmployeeResponse(employee.getId(), employee.getFirstName()+number, employee.getLastName());
-        }
-        //not found
-        return new EmployeeResponse();
     }
 
     @GetMapping("/employee")
