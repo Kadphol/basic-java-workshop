@@ -34,11 +34,19 @@ public class EmployeeServiceTest {
         service.setRepository(repository);
 
         EmployeeResponse result = service.process(1);
-
-
-
         assertEquals(1, result.getId());
         assertEquals("Service name10", result.getFname());
         assertEquals("Service lname", result.getLname());
+    }
+
+    @Test
+    public void EmployeeID100NotFound() {
+        EmployeeService service = new EmployeeService();
+        service.setRepository(repository);
+
+        EmployeeResponse result = service.process(100);
+        assertEquals(0, result.getId());
+        assertNull(result.getFname());
+        assertNull( result.getLname());
     }
 }
