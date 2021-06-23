@@ -25,7 +25,7 @@ class EmployeeControllerTest {
     private Random random;
 
     @Test
-    public void callApiWithPathVariable() {
+    public void callApiWithPathVariableAndDatabase() {
         //Mock
         when(random.nextInt(10)).thenReturn(5);
 
