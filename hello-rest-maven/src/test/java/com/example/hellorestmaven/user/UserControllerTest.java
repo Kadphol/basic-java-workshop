@@ -14,10 +14,7 @@ public class UserControllerTest {
 
     @Test
     public void getUsersTest() {
-        UserModel[] result = restTemplate.getForObject("/users",UserModel[].class);
-        assertEquals(5, result.length);
-        for (UserModel user : result) {
-            assertEquals(user.getId() % 2, 0);
-        }
+        Users result = restTemplate.getForObject("/users",Users.class);
+        assertEquals(5, result.getUsers().size());
     }
 }

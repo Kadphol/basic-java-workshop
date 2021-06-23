@@ -16,8 +16,8 @@ public class UserGatewayTest {
 
     @Test
     public void callAPI() {
-        List<UserModel> users = userGateway.getAllUsers();
-        assertEquals(10, users.size());
+        Users users = userGateway.getAllUsers();
+        assertEquals(10, users.getUsers().size());
     }
 
     @Test

@@ -12,11 +12,10 @@ import java.util.stream.Collectors;
 public class UserController {
 
     @Autowired
-    private UserGateway userGateway;
+    private UserService userService;
 
     @GetMapping("/users")
-    public List<UserModel> getUsers() {
-        List<UserModel> users = userGateway.getAllUsers();
-        return users.stream().filter(user -> user.getId()%2==0).collect(Collectors.toList());
+    public Users getUsers() {
+       return userService.getAllUsersWithEvenID();
     }
 }
