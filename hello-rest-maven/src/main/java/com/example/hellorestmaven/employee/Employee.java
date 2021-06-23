@@ -12,13 +12,19 @@ public class Employee {
     private int id;
 
     private String firstName;
-    private String LastName;
+    private String lastName;
 
     public Employee() {}
 
     public Employee(String firstName, String lastName) {
         this.firstName = firstName;
-        this.LastName = lastName;
+        this.lastName = lastName;
+    }
+
+    public Employee(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public int getId() {
@@ -38,10 +44,10 @@ public class Employee {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 }
