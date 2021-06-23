@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 import java.util.Random;
 
@@ -25,15 +26,22 @@ public class EmployeeController {
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
         int _id;
         EmployeeResponse response;
+        Employee employee;
         try {
             _id = Integer.parseInt(id);
-            Employee employee = repository.getById(_id);
-            int number = random.nextInt(10);
-            response = new EmployeeResponse(employee.getId(), employee.getFirstName()+number, employee.getLastName());
         } catch (NumberFormatException e) {
             throw new NumberFormatException("Invalid id :" + id);
         }
-        return response;
+
+        // Call repository
+        Optional<Employee> result = repository.findById(_id);
+        if(result.isPresent()) {
+            employee = result.get();
+            int number = random.nextInt(10);
+            return new EmployeeResponse(employee.getId(), employee.getFirstName()+number, employee.getLastName());
+        }
+        //not found
+        return new EmployeeResponse();
     }
 
     @GetMapping("/employee")
