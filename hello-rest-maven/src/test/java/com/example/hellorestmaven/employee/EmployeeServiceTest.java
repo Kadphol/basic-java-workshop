@@ -41,12 +41,15 @@ public class EmployeeServiceTest {
 
     @Test
     public void EmployeeID100NotFound() {
+        when(repository.findById(100)).thenReturn(
+                Optional.empty()
+        );
         EmployeeService service = new EmployeeService();
         service.setRepository(repository);
 
         EmployeeResponse result = service.process(100);
         assertEquals(0, result.getId());
         assertNull(result.getFname());
-        assertNull( result.getLname());
+        assertNull(result.getLname());
     }
 }
