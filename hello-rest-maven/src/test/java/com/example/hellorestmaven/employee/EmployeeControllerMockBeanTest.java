@@ -20,7 +20,7 @@ class EmployeeControllerMockBeanTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Autowired
+    @MockBean
     private EmployeeRepository repository;
 
     @MockBean
