@@ -13,6 +13,8 @@ public class EmployeeResponse{
         this.lname = lname;
     }
 
+    public EmployeeResponse() { }
+
     public void setFname(String fname){ this.fname = fname; }
 
     public String getFname(){
