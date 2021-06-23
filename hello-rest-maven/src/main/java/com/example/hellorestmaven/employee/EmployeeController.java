@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.Random;
 
 @RestController
@@ -17,18 +18,22 @@ public class EmployeeController {
     @Autowired
     private Random random;
 
+    @Autowired
+    private EmployeeRepository repository;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
-        int _id = 0;
+        int _id;
+        EmployeeResponse response;
         try {
             _id = Integer.parseInt(id);
+            Employee employee = repository.getById(_id);
+            int number = random.nextInt(10);
+            response = new EmployeeResponse(employee.getId(), employee.getFirstName()+number, employee.getLastName());
         } catch (NumberFormatException e) {
-            return new EmployeeResponse(_id, "Can't", "Convert");
+            throw new NumberFormatException("Invalid id :" + id);
         }
-
-        int number = random.nextInt(10);
-        return new EmployeeResponse(_id, "Someone"+number, "Something");
+        return response;
     }
 
     @GetMapping("/employee")
