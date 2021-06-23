@@ -21,14 +21,4 @@ public class EmployeeRepositoryTest {
         assertEquals("Someone", employee1.getFirstName());
         assertEquals("Something", employee1.getLastName());
     }
-
-    @Test
-    public void foundWithID2() {
-        repository.save(new Employee("Someone","Something"));
-
-        Employee employee1 = repository.getById(1);
-        assertEquals(1, employee1.getId());
-        assertEquals("Someone", employee1.getFirstName());
-        assertEquals("Something", employee1.getLastName());
-    }
 }
