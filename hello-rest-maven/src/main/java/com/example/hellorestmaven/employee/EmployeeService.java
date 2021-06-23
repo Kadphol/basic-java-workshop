@@ -1,5 +1,6 @@
 package com.example.hellorestmaven.employee;
 
+import org.omg.CosNaming.NamingContextPackage.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,7 @@ public class EmployeeService {
             return new EmployeeResponse(employee.getId(), employee.getFirstName()+number, employee.getLastName());
         }
         //not found
-        return new EmployeeResponse();
+        //return new EmployeeResponse();
+        throw new EmployeeNotFoundException();
     }
 }
